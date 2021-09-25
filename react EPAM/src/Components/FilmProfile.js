@@ -8,7 +8,6 @@ const FilmProfile = () => {
   const params = useParams();
   const { film, setFilm, liked, setLiked } = useContext(Context);
   let history = useHistory();
-  const [toggle, setToggle] = useState(false);
 
   function truncate(string, n) {
     string = string?.replace("</p>", " ").replace("<p>", " ");
@@ -32,22 +31,27 @@ const FilmProfile = () => {
     FetchData();
   }, []);
 
-  const [disable, setDisable] = React.useState(false);
-  
   const addToLiked = () => {
-    let id = liked.map((i) => i.id);
-    console.log(id);
-    if (toggle === true) {
-      setToggle(false);
-    } else setToggle(true);
-    console.log("add");
-    setLiked(liked.concat(film));
-    setDisable(true)
+    if(!checkIfFilIsLiked(film.id)){
+      console.log('true')
+      setLiked([...liked,film]);
+    }else {
+      console.log('false');
+      setLiked(liked.filter(e=>e.id != film.id));
+    }
+
   };
 
+  const checkIfFilIsLiked = (filmId) => {
+    console.log('checking')
+    if(liked.filter(e=>e.id == filmId).length == 0){
+      return false;
+    }
 
+    return true;
+  }
 
-
+  
 
   return (
     <div className="filmProfile">
@@ -58,11 +62,10 @@ const FilmProfile = () => {
           src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
         />
         <button
-          disabled={disable} 
           onClick={addToLiked}
-          className={`addToLiked ${toggle && "addToLikedDone"}`}
+          className={checkIfFilIsLiked(film.id)? "addToLikedDone":"addToLiked"}
         >
-          Push to liked
+          {checkIfFilIsLiked(film.id)?'delete from liked':"add to liked"}
         </button>
       </div>
       <div className="filmInfo">

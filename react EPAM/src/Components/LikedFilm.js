@@ -13,6 +13,7 @@ const LikedFilm = () => {
     history.push("/homepage");
   };
 
+
   return (
     <div className="likedPage">
       <img
