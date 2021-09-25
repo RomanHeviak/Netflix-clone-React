@@ -33,21 +33,17 @@ const FilmProfile = () => {
 
   const addToLiked = () => {
     if(!checkIfFilIsLiked(film.id)){
-      console.log('true')
       setLiked([...liked,film]);
     }else {
-      console.log('false');
       setLiked(liked.filter(e=>e.id != film.id));
     }
 
   };
 
   const checkIfFilIsLiked = (filmId) => {
-    console.log('checking')
     if(liked.filter(e=>e.id == filmId).length == 0){
       return false;
     }
-
     return true;
   }
 
