@@ -12,9 +12,6 @@ const HomePage = () => {
   const [selectedSort, setSelectedSort] = useState("");
   const [search, setSearch] = useState("");
   const [listToShow, setListToShow,] = useState("");
- 
-  // const { search, sortedByGenres } = useContext(Context);
-  //awdqawdawda
 
   const genres = ["Comedy", "Drama", "Family", "Horror", "Action"];
 
