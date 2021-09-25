@@ -61,11 +61,6 @@ const HomePage = () => {
         sortedFilms ={filteredFilms}
       />
       <Banner />
-      {/* {sortedByGenres.length ? (
-        <Genres />
-      ) : search.length ? (
-        <SearchResult />
-      ) : ( */}
       <div className="homepage">
         {selectedSort ? (
           <Row
@@ -82,7 +77,6 @@ const HomePage = () => {
               movies={filteredFilms.filter(({ genres }) =>
                 genres.includes(item)
               )}
-              isLareRow
             />
           ))
         )}

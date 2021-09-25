@@ -4,14 +4,6 @@ import { Context } from "../context";
 import "../Style/LikedFilm.css";
 
 const LikedFilm = () => {
-
-  // const { film, setFilm, movies, setMovies} = useContext(Context);
-
-  // function filmItem(id) {
-  //   let item = movies.filter((film) => film.id == id.target.id);
-  //   setFilm(item);
-  //   history.push(`/filmprofile/${item.map((i) => i.id)}`);
-  // }
   const { liked } = useContext(Context);
 
   let history = useHistory();

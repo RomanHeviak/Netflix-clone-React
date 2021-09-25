@@ -34,37 +34,6 @@ const Navbar = (props) => {
     history.push("/profile");
   };
 
-  // const getSearch = (e) => {
-  //   e.preventDefault();
-  //   setQuery(search);
-  // };
-
-  // const getMovies = async () => {
-  //   const response = await axios.get("https://api.tvmaze.com/shows");
-  //   setMovies(response.data);
-  // };
-
-  // const updateSearch = (e) => {
-  //   setSearch(e.target.value);
-  // };
-
-  // useEffect(() => {
-  //   getMovies();
-  // }, [query]);
-
-  // const sortMovies = (sort) => {
-  //   // setSorted(movies);
-  //   // setSelectedSort(sort);
-  //   // setSortedByGenres(movies.filter((i) => i.genres.includes(sort)));
-  //   setListToShow(listToShow.filter((i) => i.genres.includes(sort)));
-  // };
-
-  // const sortedFilms = () => {
-  //   setListToShow(
-  //     listToShow.sort((a, b) => b.rating.average - a.rating.average)
-  //   );
-  // };
-
   useEffect(() => {
     window.addEventListener("scroll", transitionNavBar);
     return () => window.removeEventListener("scroll", transitionNavBar);

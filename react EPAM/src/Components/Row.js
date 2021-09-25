@@ -1,13 +1,11 @@
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import { useHistory } from "react-router-dom";
 import { Context } from "../context";
 import "../Style/Row.css";
-import SearchResult from "./SearchResult";
 
-const Row = ({ title, movies, isLargeRow = false }) => {
+const Row = ({ title, movies}) => {
   let history = useHistory();
-  const { film, setFilm,} = useContext(Context);
+  const { setFilm,} = useContext(Context);
 
   function filmItem(id) {
     let item = movies.filter((film) => film.id == id.target.id);
@@ -25,17 +23,14 @@ const Row = ({ title, movies, isLargeRow = false }) => {
               .filter((i) => i.genres.includes(title))
               .map(
                 (movie) =>
-                  !isLargeRow &&
                   movie?.image?.original && (
                     <div className="rowItem">
                       <img
                         id={movie.id}
                         onClick={filmItem}
-                        className={`rowPoster ${
-                          isLargeRow && "rowPosterLarge"
-                        }`}
+                        className={`rowPoster`}
                         key={movie.id}
-                        src={`${isLargeRow ? null : movie?.image?.original}`}
+                        src={`${movie?.image?.original}`}
                         alt={movie.name}
                       />
                       <p>{movie.name}</p>
