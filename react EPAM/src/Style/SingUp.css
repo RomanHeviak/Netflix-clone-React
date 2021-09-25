@@ -1,0 +1,47 @@
+.signUpForm{
+    display: grid;
+    background: rgba(0,0,0,0.8);
+    width: 40%;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.signUpForm>input{
+    padding: 5px 15px;
+    outline-width:0;
+    height: 30px;
+    margin-bottom: 14px;
+}
+
+.signUp > form> h1{
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.signUp > form> h2{
+    color: white;
+    margin-bottom: 30px;
+}
+
+.signUp>form>button{
+    color: white;
+    padding: 16px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: red;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+
+.signUp{
+        position: relative;
+        height: 100vh;
+        background: url("https://tk.media/storage/uploads/undefined/content/2019/11/undefined_187_20191115095449.jpg") center no-repeat;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+}

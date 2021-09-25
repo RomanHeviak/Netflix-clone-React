@@ -1,0 +1,47 @@
+.likedPage{
+    color: white;
+    background-color: black; 
+}
+
+.LikedFilms{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 10px 0 50px 100px;
+}
+
+.likedFilm{
+    max-height: 200px;
+    object-fit: contain;
+    margin: 50px 15px 10px 15px;
+    transition: transform 450ms;
+}
+
+.likedFilm:hover{
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.likedFilm{
+    transition: transform 450ms;
+}
+
+.likedFilm>p{
+    margin-top: 10px;
+}
+
+.likedFilm:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.filmImg{
+    max-height: 200px;
+    object-fit: contain;
+    margin-right: 15px;
+    transition: transform 450ms;
+}
+
+
