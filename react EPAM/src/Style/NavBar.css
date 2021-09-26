@@ -17,16 +17,12 @@
 .navContent>input{
     position: fixed;
     right: 90px;
-    height: 30px;
+    height: 33px;
     cursor: pointer;
     border: none;
-    opacity: 0.7;
+    opacity: 0.6;
+    border-radius: 5px;
 }
-
-.navContent>input{
-    height: 30px;
-}
-
 
 .logo{
     position: fixed;
@@ -60,22 +56,19 @@
     position: fixed;
     right: 250px;
     height: 35px;
-    opacity: 0.7;
+    opacity: 0.6;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
  }
  .sortingbtn{
     position: fixed;
-    right: 350px;
+    right: 340px;
     height: 35px;
-    opacity: 0.7;
+    opacity: 0.6;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
  }
 
- .ratingBtn{
-    position: fixed;
-    right: 330px;
-    height: 35px;
-    opacity: 0.7;
-    cursor: pointer;
- }
 
