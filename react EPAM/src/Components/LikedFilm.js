@@ -15,7 +15,9 @@ const LikedFilm = () => {
     .ref(`${userUID}/liked`)
     .on('value', snapshot=>{
       const arr = snapshot.val()
-      arr.length === 1 && arr[0] === -1 ? setLiked([]):setLiked(arr)
+      if(arr){
+        arr.length === 0? setLiked([]):setLiked(arr)
+      }
     })
   },[])
 
