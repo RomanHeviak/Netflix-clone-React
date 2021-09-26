@@ -10,6 +10,8 @@ const FilmProfile = () => {
   const params = useParams();
   const { film, setFilm, liked, setLiked } = useContext(Context);
   let history = useHistory();
+  const [isLiked, setIsLiked] = useState(false);
+  const [likes, setLikes] = useState([]);
 
   function truncate(string, n) {
     string = string?.replace("</p>", " ").replace("<p>", " ");
@@ -23,14 +25,36 @@ const FilmProfile = () => {
     history.push("/homepage");
   };
 
+  async function FetchData() {
+    const request = await axios.get(
+      `https://api.tvmaze.com/shows/${params.id}`
+    );
+    setFilm(request.data);
+  }
+
+  const updateLikes=()=>{
+    dataBase
+    .ref(`likes/${params.id}`)
+    .on('value', snapshot=>{
+      const arr = snapshot.val();
+      if(arr){
+        if(arr.filter(e=>e.userId == userUID).length > 0){
+          setIsLiked(true);
+        }else{
+          setIsLiked(false);
+        }
+        setLikes(arr);
+      }else{
+        setIsLiked(false);
+        setLikes([]);
+      }
+    });
+    console.log('count')
+  }
+
   useEffect(() => {
-    async function FetchData() {
-      const request = await axios.get(
-        `https://api.tvmaze.com/shows/${params.id}`
-      );
-      setFilm(request.data);
-    }
     FetchData();
+    updateLikes();
   }, []);
 
   let userUID = JSON.parse(sessionStorage.getItem("user")).uid
@@ -59,6 +83,29 @@ const FilmProfile = () => {
     }
   };    
 
+  const like=()=>{
+    if(!isLiked){
+      dataBase
+      .ref(`likes/${film.id}`)
+      .set([...likes,{userId : userUID}])
+      .then(()=>{
+        updateLikes();
+      })
+      .catch((error)=>{
+        alert(error);
+      });
+    }else {
+      dataBase
+      .ref(`likes/${film.id}`)
+      .set(likes.filter(e=>e.userId != userUID))
+      .then(()=>{
+        updateLikes();
+      })
+      .catch((error)=>{
+        alert(error);
+      });
+    }
+  }
 
   const checkIfFilIsLiked = (filmId) => {
     if(liked.filter(e=>e.id == filmId).length == 0){
@@ -81,8 +128,9 @@ const FilmProfile = () => {
           onClick={addToLiked}
           className={checkIfFilIsLiked(film.id)? "addToLikedDone":"addToLiked"}
         >
-          {checkIfFilIsLiked(film.id)?'delete from liked':"add to liked"}
+          {checkIfFilIsLiked(film.id)?'delete from favorite':"add to favorite"}
         </button>
+
       </div>
       <div className="filmInfo">
         <img src={film?.image?.original}></img>
@@ -91,7 +139,12 @@ const FilmProfile = () => {
           <p>Genres: {film?.genres?.join(', ')}</p>
           <p>{truncate(film.summary)}</p>
           <p>Rating: {film?.rating?.average}</p>
+          <p>Likes: {likes.length}</p>
+          <button
+        className={isLiked? "likesBtnDoone":"likesBtn"}
+        onClick={like}>{isLiked?'Dislike':'Like'}</button>
         </div>
+        
       </div>
     </div>
   );

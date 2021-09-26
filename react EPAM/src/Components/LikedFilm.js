@@ -16,6 +16,7 @@ const LikedFilm = () => {
     .on('value', snapshot=>{
       const arr = snapshot.val()
       if(arr){
+        console.log(arr)
         arr.length === 0? setLiked([]):setLiked(arr)
       }
     })

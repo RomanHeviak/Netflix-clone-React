@@ -46,3 +46,23 @@
     border: none;
     cursor: pointer;
 }
+
+.likesBtn{
+    margin:10px 0 0 35px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: red;
+    border: none;
+    cursor: pointer;
+}
+
+.likesBtnDoone{
+    margin:10px 0 0 35px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: red;
+    background-color: gray;
+    border: none;
+    cursor: pointer;
+}
