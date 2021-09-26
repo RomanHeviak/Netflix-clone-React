@@ -8,11 +8,11 @@ import SignUpPage from "./Components/SignUpPage";
 import Profile from "./Components/Profile";
 import FilmProfile from "./Components/FilmProfile";
 import { Context } from "../src/context";
-import LikedFilm from "./Components/LikedFilm";
+import LikedFilm from "./Components/FavoriteFilm";
 
 function App() {
   const [film, setFilm] = useState([]);
-  const [liked, setLiked] = useState([]);
+  const [favorite, setFavorite] = useState([]);
   const [movies, setMovies] = useState([]);
 
   return (
@@ -22,8 +22,8 @@ function App() {
           {
             film,
             setFilm,
-            liked,
-            setLiked,
+            favorite,
+            setFavorite,
             movies, 
             setMovies
           }

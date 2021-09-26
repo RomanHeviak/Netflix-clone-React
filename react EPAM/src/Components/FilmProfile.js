@@ -8,7 +8,7 @@ import { dataBase } from "../firebase";
 
 const FilmProfile = () => {
   const params = useParams();
-  const { film, setFilm, liked, setLiked } = useContext(Context);
+  const { film, setFilm, favorite, setFavorite } = useContext(Context);
   let history = useHistory();
   const [isLiked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState([]);
@@ -49,37 +49,46 @@ const FilmProfile = () => {
         setLikes([]);
       }
     });
-    console.log('count')
   }
 
   useEffect(() => {
     FetchData();
     updateLikes();
+    dataBase
+    .ref(`${userUID}/favorite`)
+    .on('value', snapshot=>{
+      const arr = snapshot.val()
+      if(arr){
+        arr.length === 0? setFavorite([]):setFavorite(arr)
+      }
+    })
   }, []);
 
   let userUID = JSON.parse(sessionStorage.getItem("user")).uid
 
   const addToLiked = () => {
     if(!checkIfFilIsLiked(film.id)){
+      let newFav = [...favorite,film];
       dataBase
-      .ref(`${userUID}/liked`)
-      .set([...liked,film])
+      .ref(`${userUID}/favorite`)
+      .set(newFav)
       .then(()=>{
+        setFavorite(newFav);
       })
       .catch((error)=>{
         alert(error);
       });
-      setLiked([...liked,film]);
     }else {
+      let newFav = favorite.filter(e=>e.id != film.id);
       dataBase
-      .ref(`${userUID}/liked`)
-      .set(liked.filter(e=>e.id != film.id))
+      .ref(`${userUID}/favorite`)
+      .set(newFav)
       .then(()=>{
+        setFavorite(newFav);
       })
       .catch((error)=>{
         alert(error);
       });
-      setLiked(liked.filter(e=>e.id != film.id));
     }
   };    
 
@@ -108,7 +117,7 @@ const FilmProfile = () => {
   }
 
   const checkIfFilIsLiked = (filmId) => {
-    if(liked.filter(e=>e.id == filmId).length == 0){
+    if(favorite.filter(e=>e.id == filmId).length == 0){
       return false;
     }
     return true;

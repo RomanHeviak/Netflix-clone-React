@@ -2,22 +2,21 @@ import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Context } from "../context";
 import { dataBase } from "../firebase";
-import "../Style/LikedFilm.css";
+import "../Style/FavoriteFilm.css";
 
 const LikedFilm = () => {
-  const { liked,setFilm,setLiked, } = useContext(Context);
+  const { favorite,setFilm,setFavorite, } = useContext(Context);
 
   let history = useHistory();
   let userUID = JSON.parse(sessionStorage.getItem("user")).uid
 
   useEffect(()=>{
     dataBase
-    .ref(`${userUID}/liked`)
+    .ref(`${userUID}/favorite`)
     .on('value', snapshot=>{
       const arr = snapshot.val()
       if(arr){
-        console.log(arr)
-        arr.length === 0? setLiked([]):setLiked(arr)
+        arr.length === 0? setFavorite([]):setFavorite(arr)
       }
     })
   },[])
@@ -28,7 +27,7 @@ const LikedFilm = () => {
   };
 
   function filmItem(id) {
-    let item = liked.filter((film) => film.id == id.target.id);
+    let item = favorite.filter((film) => film.id == id.target.id);
     setFilm(item);
     history.push(`/filmprofile/${item.map((i) => i.id)}`);
   }
@@ -44,7 +43,7 @@ const LikedFilm = () => {
         alt=""
       />
       <div className="LikedFilms">
-        {liked.map((movie) => (
+        {favorite.map((movie) => (
           <div className="likedFilm">
             <img
               onClick={filmItem}
