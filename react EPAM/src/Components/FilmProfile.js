@@ -3,6 +3,8 @@ import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 import { Context } from "../context";
 import "../Style/FilmProfile.css";
+import { auth } from '../firebase';
+import { dataBase } from "../firebase";
 
 const FilmProfile = () => {
   const params = useParams();
@@ -31,14 +33,32 @@ const FilmProfile = () => {
     FetchData();
   }, []);
 
+  let userUID = JSON.parse(sessionStorage.getItem("user")).uid
+
   const addToLiked = () => {
     if(!checkIfFilIsLiked(film.id)){
+      dataBase
+      .ref(`${userUID}/liked`)
+      .set([...liked,film])
+      .then(()=>{
+      })
+      .catch((error)=>{
+        alert(error);
+      });
       setLiked([...liked,film]);
     }else {
+      dataBase
+      .ref(`${userUID}/liked`)
+      .set(liked.filter(e=>e.id != film.id))
+      .then(()=>{
+      })
+      .catch((error)=>{
+        alert(error);
+      });
       setLiked(liked.filter(e=>e.id != film.id));
     }
+  };    
 
-  };
 
   const checkIfFilIsLiked = (filmId) => {
     if(liked.filter(e=>e.id == filmId).length == 0){

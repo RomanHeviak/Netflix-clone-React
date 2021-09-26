@@ -1,12 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Context } from "../context";
+import { dataBase } from "../firebase";
 import "../Style/LikedFilm.css";
 
 const LikedFilm = () => {
-  const { liked,setFilm } = useContext(Context);
+  const { liked,setFilm,setLiked, } = useContext(Context);
 
   let history = useHistory();
+  let userUID = JSON.parse(sessionStorage.getItem("user")).uid
+
+  useEffect(()=>{
+    dataBase
+    .ref(`${userUID}/liked`)
+    .on('value', snapshot=>{
+      const arr = snapshot.val()
+      arr.length === 1 && arr[0] === -1 ? setLiked([]):setLiked(arr)
+    })
+  },[])
 
   const backToHomepage = (event) => {
     event.preventDefault();
@@ -15,7 +26,6 @@ const LikedFilm = () => {
 
   function filmItem(id) {
     let item = liked.filter((film) => film.id == id.target.id);
-    console.log(item)
     setFilm(item);
     history.push(`/filmprofile/${item.map((i) => i.id)}`);
   }

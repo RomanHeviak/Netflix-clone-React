@@ -3,6 +3,7 @@ import firebase from "firebase";
 const firebaseConfig = {
   apiKey: "AIzaSyA4fUk0UikDlIPsbEZd5_YmBvvXEn84NOk",
   authDomain: "netflix-3bbd6.firebaseapp.com",
+  databaseURL: "https://netflix-3bbd6-default-rtdb.firebaseio.com",
   projectId: "netflix-3bbd6",
   storageBucket: "netflix-3bbd6.appspot.com",
   messagingSenderId: "441992551282",
@@ -13,7 +14,8 @@ const firebaseConfig = {
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
+const dataBase = firebaseApp.database();
 
-export {auth};
+export {auth , dataBase};
 export default db;
   
