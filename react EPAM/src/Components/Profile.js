@@ -17,7 +17,7 @@ const Profile = () => {
       .signOut()
       .then(() => {
         sessionStorage.setItem("user", null);
-        history.push("/start");
+        history.push("/");
       })
       .catch((error) => {
         alert(error);

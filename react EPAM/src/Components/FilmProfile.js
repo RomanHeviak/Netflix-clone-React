@@ -123,8 +123,6 @@ const FilmProfile = () => {
     return true;
   }
 
-  
-
   return (
     <div className="filmProfile">
       <div className="loginPageBackground">
@@ -151,7 +149,7 @@ const FilmProfile = () => {
           <p>Likes: {likes.length}</p>
           <button
         className={isLiked? "likesBtnDoone":"likesBtn"}
-        onClick={like}>{isLiked?'Dislike':'Like'}</button>
+        onClick={like}>{isLiked?'Unlike':'Like'}</button>
         </div>
         
       </div>

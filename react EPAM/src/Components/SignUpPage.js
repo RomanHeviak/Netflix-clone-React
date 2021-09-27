@@ -33,7 +33,7 @@ const SignUpPage = () => {
 
     const start = (event) => {
         event.preventDefault()
-        history.push('/start')
+        history.push('/')
     }
 
     return (

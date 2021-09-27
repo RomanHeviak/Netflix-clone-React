@@ -41,7 +41,7 @@ const SignInPage = () => {
 
   const start = (event) => {
     event.preventDefault();
-    history.push("/start");
+    history.push("/");
   };
 
   return (

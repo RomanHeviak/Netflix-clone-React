@@ -34,6 +34,11 @@ const Navbar = (props) => {
     history.push("/profile");
   };
 
+  const showFriends = (event) => {
+    event.preventDefault();
+    history.push("/people");
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", transitionNavBar);
     return () => window.removeEventListener("scroll", transitionNavBar);
@@ -87,6 +92,12 @@ const Navbar = (props) => {
           onClick={showProfile}
           className="avatar"
           src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e70b1333850498.56ba69ac32ae3.png"
+          alt=""
+        />
+        <img
+          onClick={showFriends} 
+          className="friends"
+          src="https://st4.depositphotos.com/38837296/39706/v/600/depositphotos_397060242-stock-illustration-best-friends-icon-vector-from.jpg"
           alt=""
         />
       </div>
