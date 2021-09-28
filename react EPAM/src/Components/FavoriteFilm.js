@@ -42,6 +42,7 @@ const LikedFilm = () => {
         src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
         alt="netflixLogo"
       />
+      <h1 className='favorite'>{favorite.length?'Favorite list':'No favorite'}</h1>
       <div className="LikedFilms">
         {favorite.map((movie) => (
           <div key={movie.id} className="likedFilm">

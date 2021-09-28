@@ -105,7 +105,7 @@ const People = () => {
              className={`people`  + (peopleActive ? ' activeBtn' : ' disableBtn') }
              onClick={peopleClick}
            >
-             All users
+             All Users
            </span>
            <span
              className={`friend`  + (peopleActive ? ' disableBtn' : ' activeBtn') }
@@ -115,19 +115,19 @@ const People = () => {
            </span>
            <input value={search} onChange={(e) => setSearch(e.target.value)} className='personSearch' type='text' placeholder='search'/>
            </div>
-         </div>
+           </div>
 
        <div className='peopleContainer'>
          {peopleActive?(people.filter(i=>i.name.includes(search)).map(i=>
          <div key={i.id} className='showPeople'>
-           <h2>{i.name}</h2>
+           <h2>{i?.name}</h2>
            <button id={i.id} onClick={addFriend} className={`addFriend`  + (friends.includes(String(i.id)) ? ' gray' : ' red') }>
              {friends.includes(String(i.id)) ?'Delete friend':'Add friend'}</button>
          </div>))
          :(friends.map(e=>people.find(p=>p.id == e))
          .filter(f=>f.name.includes(search))
          .map(f=><div key={f.id} className='showPeople'>
-         <h2>{f.name}</h2>
+         <h2>{f?.name}</h2>
          <button id={f.id} onClick={addFriend} className='addFriend gray'>Delete friend</button>
          </div>))}
          </div>

@@ -72,7 +72,7 @@ const HomePage = () => {
         ) : (
           genres.map((item) => (
             <Row
-            key={item}
+            key={item.id}
               title={item}
               movies={filteredFilms.filter(({ genres }) =>
                 genres.includes(item)

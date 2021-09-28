@@ -11,6 +11,10 @@
     padding: 10px 0 50px 100px;
 }
 
+.favorite{
+    margin: 15px 0 0 150px;
+}
+
 .likedFilm{
     max-height: 200px;
     object-fit: contain;

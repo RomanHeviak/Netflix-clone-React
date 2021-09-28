@@ -45,7 +45,7 @@ const Banner = () => {
             My List of favorite
           </button>
         </div>
-        <h1 className="bannerDescription">{truncate(movie.summary, 200)}</h1>
+        <h1 className="bannerDescription">{truncate(movie?.summary, 200)}</h1>
       </div>
       <div className="bannerFadeBottom"></div>
     </header>

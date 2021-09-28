@@ -16,7 +16,7 @@
 
 .navContent>input{
     position: fixed;
-    right: 90px;
+    right: 80px;
     height: 33px;
     cursor: pointer;
     border: none;
@@ -54,7 +54,7 @@
 
 .sortbtn{
     position: fixed;
-    right: 250px;
+    right: 235px;
     height: 35px;
     opacity: 0.6;
     cursor: pointer;
@@ -63,7 +63,7 @@
  }
  .sortingbtn{
     position: fixed;
-    right: 340px;
+    right: 320px;
     height: 35px;
     opacity: 0.6;
     cursor: pointer;

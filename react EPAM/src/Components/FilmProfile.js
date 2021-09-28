@@ -136,7 +136,7 @@ const FilmProfile = () => {
         >
           {checkIfFilIsLiked(film.id)?'delete from favorite':"add to favorite"}
         </button>
-
+        
       </div>
       <div className="filmInfo">
         <img src={film?.image?.original}></img>
