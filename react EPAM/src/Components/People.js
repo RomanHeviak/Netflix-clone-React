@@ -94,7 +94,7 @@ const People = () => {
       return (
         <div className='user'>
            <div className= {`scroll ${show && "navBlack"}`}>
-        <img
+        <img 
            onClick={backToHomepage}
            className="logo"
            src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"

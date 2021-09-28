@@ -40,9 +40,7 @@ const Banner = () => {
     >
       <div className="bannerContents">
         <h1 className="bannerTitle">{movie?.name}</h1>
-
         <div className="bannerButtons">
-          {/* <button className='bannerButton'>Play</button> */}
           <button onClick={showLiked} className="bannerButton">
             My List of favorite
           </button>

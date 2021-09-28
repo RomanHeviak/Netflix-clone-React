@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Context } from "../context";
+import React, { useEffect, useState } from "react";
 import "../Style/NavBar.css";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 import Select from "./Select";
 import Sort from "./Sort";
 
@@ -88,6 +86,7 @@ const Navbar = (props) => {
           ]}
         />
         <img
+        title='profile'
           onClick={showProfile}
           className="avatar"
           src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/e70b1333850498.56ba69ac32ae3.png"
@@ -95,6 +94,7 @@ const Navbar = (props) => {
         />
 
         <img
+        title='friends'
           onClick={showFriends} 
           className="friends"
           src="https://st4.depositphotos.com/38837296/39706/v/600/depositphotos_397060242-stock-illustration-best-friends-icon-vector-from.jpg"

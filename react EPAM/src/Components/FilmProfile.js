@@ -3,7 +3,6 @@ import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 import { Context } from "../context";
 import "../Style/FilmProfile.css";
-import { auth } from '../firebase';
 import { dataBase } from "../firebase";
 
 const FilmProfile = () => {

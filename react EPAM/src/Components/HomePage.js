@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import "../Style/HomePage.css";
 import Navbar from "../Components/NavBar";
@@ -20,7 +20,6 @@ const HomePage = () => {
   if (JSON.parse(sessionStorage.getItem("user")) === null) {
     history.push("/login");
   }
-
 
   const filteredFilms = useMemo(() => {
     if (!movies.length) return [];
