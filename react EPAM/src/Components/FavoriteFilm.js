@@ -44,7 +44,7 @@ const LikedFilm = () => {
       />
       <div className="LikedFilms">
         {favorite.map((movie) => (
-          <div className="likedFilm">
+          <div key={movie.id} className="likedFilm">
             <img
               onClick={filmItem}
               id={movie.id}

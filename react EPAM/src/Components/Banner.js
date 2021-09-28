@@ -39,7 +39,7 @@ const Banner = () => {
       }}
     >
       <div className="bannerContents">
-        <h1 className="bannerTitle">{movie.name}</h1>
+        <h1 className="bannerTitle">{movie?.name}</h1>
 
         <div className="bannerButtons">
           {/* <button className='bannerButton'>Play</button> */}

@@ -24,7 +24,7 @@ const Row = ({ title, movies}) => {
               .map(
                 (movie) =>
                   movie?.image?.original && (
-                    <div className="rowItem">
+                    <div key={movie.id} className="rowItem">
                       <img
                         id={movie.id}
                         onClick={filmItem}

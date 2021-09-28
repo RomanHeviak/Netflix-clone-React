@@ -73,6 +73,7 @@ const HomePage = () => {
         ) : (
           genres.map((item) => (
             <Row
+            key={item}
               title={item}
               movies={filteredFilms.filter(({ genres }) =>
                 genres.includes(item)

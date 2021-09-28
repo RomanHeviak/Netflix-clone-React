@@ -78,4 +78,14 @@
 
 .navBlack{
     background-color: black;
+    text-decoration: underline;
+}
+
+.activeBtn{
+        color: white;
+        text-decoration: white underline;
+}
+
+.disableBtn{
+    color: red;
 }
