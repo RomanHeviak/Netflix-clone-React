@@ -30,7 +30,7 @@ const Profile = () => {
         onClick={backToHomepage}
         className="logo"
         src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
-        alt=""
+        alt="netflixLogo"
       />
       <h2 style={{ color: "white" }}> Name: {user?.displayName}</h2>
       <h2 style={{ color: "white" }}> Email: {user?.email}</h2>

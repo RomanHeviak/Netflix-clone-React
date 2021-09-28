@@ -98,7 +98,7 @@ const People = () => {
            onClick={backToHomepage}
            className="logo"
            src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
-           alt=""
+           alt="netflixLogo"
          />
          <div className="userFriends">
            <span

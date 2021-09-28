@@ -40,7 +40,7 @@ const LikedFilm = () => {
         className="logo"
         onClick={backToHomepage}
         src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
-        alt=""
+        alt="netflixLogo"
       />
       <div className="LikedFilms">
         {favorite.map((movie) => (

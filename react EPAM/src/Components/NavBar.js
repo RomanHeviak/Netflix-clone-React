@@ -52,7 +52,7 @@ const Navbar = (props) => {
         <img
           className="logo"
           src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
-          alt=""
+          alt="netflixLogo"
         />
 
         <input
