@@ -128,7 +128,7 @@ const FilmProfile = () => {
         <img
           onClick={backToHomepage}
           className="loginLogo"
-          src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
+          src="https://ars-ckd.tls.muzkult.ru/media/2020/02/03/1250044827/27348828.png"
         />
         <button
           onClick={addToLiked}

@@ -39,7 +39,7 @@ const LikedFilm = () => {
       <img
         className="logo"
         onClick={backToHomepage}
-        src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
+        src="https://ars-ckd.tls.muzkult.ru/media/2020/02/03/1250044827/27348828.png"
         alt="netflixLogo"
       />
       <h1 className='favorite'>{favorite.length?'Favorite list':'No favorite'}</h1>

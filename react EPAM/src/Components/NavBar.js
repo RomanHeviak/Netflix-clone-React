@@ -49,10 +49,9 @@ const Navbar = (props) => {
       <div className="navContent">
         <img
           className="logo"
-          src="https://pngpress.com/wp-content/uploads/2020/04/Netflix-logo.png"
+          src="https://ars-ckd.tls.muzkult.ru/media/2020/02/03/1250044827/27348828.png"
           alt="netflixLogo"
         />
-
         <input
           placeholder="Search"
           className="search-bar"
@@ -61,10 +60,11 @@ const Navbar = (props) => {
           onChange={(e) => setSearch(e.target.value)}
         />
 
+       <div className='inputs'>
         <Select
           value={selectedSort}
           onChange={setSelectedSort}
-          defaultValue="All genres"
+          defaultValue="Genres"
           options={[
             { value: "Family", name: "Family" },
             { value: "Drama", name: "Drama" },
@@ -79,12 +79,13 @@ const Navbar = (props) => {
           onChange={setListToShow}
           className="ratingBtn" 
           onClick={sortedFilms}
-          defaultValue="Sorting"
+          defaultValue="Sort by"
           options={[
             { value: "name", name: "By  name" },
             { value: "rating", name: "By rating" },
           ]}
         />
+       </div>
         <img
         title='profile'
           onClick={showProfile}
